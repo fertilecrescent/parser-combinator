@@ -1,1 +1,51 @@
-testing
+------ What do I want to be able to do? ------
+I want a program...
+That accepts a ***grammar as a string****...
+So I need to ***define the grammar***...
+Will probably be eaasiest to do by first
+    writing grammars for a few ***examples***
+
+    Ideas for examples:
+        Polish Notation
+        Some simplified python        
+
+------ Helpufl websites ------
+https://buildyourownlisp.com/chapter6_parsing
+https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form#Table_of_symbols
+https://www.sigmacomputing.com/blog/writing-a-parser-combinator-from-scratch-in-typescript/
+https://en.wikipedia.org/wiki/Recursive_descent_parser
+
+------ EBNF for Polish Notation ------
+
+POLISH: OP, EXPR+
+OP: '+' | '-' | '*' | '/'
+EXPR: '(', OP, EXPR*, ')' | NUMBER
+NUMBER: OPTIONAL_NEGATIVE, DIGIT+
+OPT_NEGATIVE: [ '-' ]
+DIGIT: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+
+------ Should produce the following code ------
+
+zero= Terminal('0')
+one = Terminal('1')
+two = Terminal('2')
+three = Terminal('3')
+
+digit = Or(one, two, three, ...)
+
+negative = Terminal('-')
+opt_negative = ZeroOrOne(negative)
+
+plus_digit = OneOrMore(digit)
+number = Concatenate(opt_negative, plus_digit)
+
+expression = Recursive(term=number, extend='(!)')
+
+plus = Terminal('+')
+mines = Terminal('-')
+times = Terminal('*')
+divide = Terminal('/')
+
+operator = Or(plus, minus, times, divide)
+
+polish = Concatenate(operator, expression)

@@ -1,0 +1,14 @@
+You are given context free grammar
+A recursive descent parser is a top-down parser
+    Which means it starts with the start symbol
+A *predictive parser* is a special case of a recursive
+    descent parser in which *no backtracking* is required
+Predictive parsers can only be written for LL(k) grammars
+    -Which means there is a constant k such that the parser
+    -only has to look at the next k tokens of input (never more)
+This exclueds *ambiguous grammars* and grammars with *left recursion*
+Any context free grammar can be transformed into an equivalent
+    grammar which has no left recursion
+A predictive parser runs in *linear* time
+You write a function for each rule of the grammar
+The resulting program looks like the grammar
