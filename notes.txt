@@ -7,7 +7,19 @@ Will probably be eaasiest to do by first
 
     Ideas for examples:
         Polish Notation
-        Some simplified python        
+        Some simplified python   
+
+------ Functions and Classes ------
+
+string_to_grammar() takes a string and returns a Grammar (or 
+    produces an error)
+Grammar.parse_file() takes a file path and returns a syntax tree by calling
+    Grammar.parse_string()
+Grammar.parse_string() takes a string and returns a syntax tree
+    (or produces an error)
+a Grammar consists of a number of Rules
+
+
 
 ------ Helpufl websites ------
 https://buildyourownlisp.com/chapter6_parsing
@@ -26,14 +38,18 @@ DIGIT: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
 ------ Should produce the following code ------
 
-zero= Terminal('0')
+zero.parse(x) returns true if x == 0
+zero = Terminal('0')
 one = Terminal('1')
 two = Terminal('2')
 three = Terminal('3')
 
+// digit.parse(x) returns true if x is in 1-9 else false
 digit = Or(one, two, three, ...)
 
 negative = Terminal('-')
+// opt_negative.parse(x) returns y, z where y is a boolean and z
+// is either zero or one
 opt_negative = ZeroOrOne(negative)
 
 plus_digit = OneOrMore(digit)

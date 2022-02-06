@@ -1,0 +1,14 @@
+How is a language specified?
+    Lexical structure - Regular expressions
+        What does a int look like?
+        A float?
+        A string?
+    Syntactic structure - Grammar
+        A statemnet?
+        A if statement?
+        A assignment statement?
+
+What is a recursive descent parser?
+    Parser is set of mutually recursive procedures(?)
+    ** The structure of the program looks like the grammar **
+    

@@ -1,0 +1,2 @@
+you have code which implements a grammar
+not write code to generate that code from a grammar (see notes.txt and recursive_rules.py)
